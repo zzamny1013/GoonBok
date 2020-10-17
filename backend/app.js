@@ -3,6 +3,7 @@ const app = express();
 //var router = require('./router/main')(app);
 const mainRouter = require('./routes/main.js');
 const loginRouter = require('./routes/login.js');
+const apiRouter = require('./routes/api/apiRouter.js');
 const session = require('express-session');
 const logger = require('morgan');
 
@@ -27,6 +28,7 @@ app.use(logger('dev'));
 
 app.use('/', mainRouter);
 app.use('/login', loginRouter);
+app.use('/api', apiRouter);
 
 const server = app.listen(port, function(){
     console.log("Express server has started on port 3000")

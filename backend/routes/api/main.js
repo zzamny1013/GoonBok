@@ -1,4 +1,4 @@
-const getConnection = require('./database');
+import getConnection from './database';
 
 getConnection((conn) => {
   conn.query(

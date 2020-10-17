@@ -1,8 +1,8 @@
 {
   "host": "localhost",
-  "user": "<username>",
+  "user": "0262user",
   "port": 3306,
-  "password": "<password>",
-  "database": "<database>",
+  "password": "0262fighting!",
+  "database": "amongusdb",
   "connectionLimit": 30
 }
