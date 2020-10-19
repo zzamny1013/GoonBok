@@ -1,22 +1,19 @@
 import { Router } from "express";
-import User from "./db/models/user";
-import Benefit from "./db/models/benefit";
-import getConnection from "./db/database";
 import UserService from "../services/UserService";
 import BenefitService from "../services/BenefitService";
 
 const router = Router();
 
 router.get("/benefit", function (req, res) {
-    return JSON.stringify(BenefitService.getBenefits());
+    res.send(JSON.stringify(BenefitService.getBenefits()));
 });
 
-router.get("/user/:id", function (req, res) {
-    return JSON.stringify(UserService.getUserById(req.params.id));
+router.get("/user/:uid", function (req, res) {
+    res.send(JSON.stringify(UserService.getUserById(req.params.uid)));
 });
 
-router.get("/benefit/:id", function (req, res) {
-    return JSON.stringify(BenefitService.getBenefitById(req.params.id));
+router.get("/benefit/:bid", function (req, res) {
+    res.send(JSON.stringify(BenefitService.getBenefitById(req.params.bid)));
 });
 
 router.post("/benefit", (req, res) => {

@@ -1,30 +1,27 @@
-const express = require("express");
-const router = express.Router();
-const crypto = require("crypto");
-const { connect } = require("http2");
-//const models = require("../models");
+import { Router } from "express";
+import UserService from '../services/UserService';
+import { createHash } from "crypto";
+import { connect } from "http2";
 
-router.get("/sign_up", function (req, res, next) {
-    //res.render("user/signup");
-});
+const router = Router();
+
+//const models = require("../models");
 
 router.post("/sign_up", async function (req, res, next) {
     let body = req.body;
 
-    let id = body.id;
-    let inputPassword = body.password;
-    let salt = Math.round(new Date().valueOf() * Math.random()) + "";
-    let hashPassword = crypto
-        .createHash("sha512")
-        .update(inputPassword + salt)
-        .digest("hex");
-    let email = body.email;
-    let name = body.name;
-    let tel = body.tel;
-    let anak = body.anak; //army? navy? airforce? kookbangboo?
-    let is_soldier = body.is_soldier; // ganboo or byungsa?
+    const newUser = {
+        uid: body.uid,
+        pw: body.pw,
+        gid: body.gid,
+        name: body.name,
+        goon_type: body.goon_type,
+        is_soldier: is_soldier,
+        email: body.email,
+        tel: body.tel
+    }
 
-    //db에 저장하는 부분
+    UserService.addUser(newUser);
 
     //res.redirect("/user/sign_up");
 });
@@ -41,28 +38,25 @@ router.get("/", function (req, res, next) {
 router.post("/", async function (req, res, next) {
     let body = req.body;
 
-    let result = await models.user.findOne({
-        where: {
-            email: body.userEmail,
-        },
-    });
+    //넘겨받은 id로 사용자를 찾는 함수
+    let result = UserService.getUserByUid(req.body.uid);
+    
 
-    let dbPassword = result.dataValues.password;
-    let inputPassword = body.password;
-    let salt = result.dataValues.salt;
-    let hashPassword = crypto
-        .createHash("sha512")
+    let dbPassword = result.pw;
+    let inputPassword = body.pw;
+    let salt = result.salt;
+    let hashPassword = createHash("sha512")
         .update(inputPassword + salt)
         .digest("hex");
 
     if (dbPassword === hashPassword) {
         console.log("비밀번호 일치");
         // 세션 설정
-        req.session.email = body.userEmail;
+        req.session.email = body.email;
     } else {
         console.log("비밀번호 불일치");
     }
     //res.redirect("/user/login");
 });
 
-module.exports = router;
+export default router;

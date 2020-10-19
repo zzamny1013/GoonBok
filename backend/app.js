@@ -1,12 +1,12 @@
-const express = require("express");
-const app = express();
-//var router = require('./router/main')(app);
-const mainRouter = require("./routes/main.js");
-const loginRouter = require("./routes/login.js");
-const apiRouter = require("./routes/apiRouter.js");
-const session = require("express-session");
-const logger = require("morgan");
+import express, { static } from "express";
 
+//var router = require('./router/main')(app);
+import mainRouter from "./routes/main.js";
+import loginRouter from "./routes/login.js";
+import apiRouter from "./routes/apiRouter.js";
+import session from "express-session";
+import logger from "morgan";
+const app = express();
 const port = 3000;
 
 app.set("views", __dirname + "/views");
@@ -25,7 +25,7 @@ app.use(
     })
 );
 
-app.use(express.static("public"));
+app.use(static("public"));
 app.use(logger("dev"));
 
 app.use("/", mainRouter);
