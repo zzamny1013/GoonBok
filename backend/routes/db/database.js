@@ -1,6 +1,10 @@
-const mysql = require("mysql");
-const config = require("./dbconfig.json");
+//const mysql = require("mysql");
+import mysql from 'mysql2';
+//const config = require("./dbconfig.json");
+import config from './dbconfig.js';
 
+//let config = fs.readFileSync('./dbconfig.json', 'utf8');
+  
 let pool = mysql.createPool(config);
 
 function getConnection(callback) {
@@ -11,4 +15,4 @@ function getConnection(callback) {
     });
 }
 
-module.exports = getConnection;
+export default getConnection;

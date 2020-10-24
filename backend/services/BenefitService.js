@@ -1,4 +1,4 @@
-import getConnection from "../routes/db/database";
+import getConnection from "../routes/db/database.js";
 
 const BenefitService = {};
 
@@ -50,4 +50,4 @@ BenefitService.addBenefit = (benefit) => {
     });
 };
 
-module.exports = BenefitService;
+export default BenefitService;

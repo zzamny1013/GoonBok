@@ -1,9 +1,10 @@
-import { Router } from "express";
-import UserService from '../services/UserService';
+import express from "express";
+import UserService from '../services/UserService.js';
 import { createHash } from "crypto";
-import { connect } from "http2";
+//import { connect } from "http2";
 
-const router = Router();
+const router = express.Router();
+
 
 //const models = require("../models");
 

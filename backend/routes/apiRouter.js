@@ -1,15 +1,15 @@
-import { Router } from "express";
-import UserService from "../services/UserService";
-import BenefitService from "../services/BenefitService";
+import express from "express";
+import UserService from "../services/UserService.js";
+import BenefitService from "../services/BenefitService.js";
 
-const router = Router();
+const router = express.Router();
 
 router.get("/benefit", function (req, res) {
     res.send(JSON.stringify(BenefitService.getBenefits()));
 });
 
 router.get("/user/:uid", function (req, res) {
-    res.send(JSON.stringify(UserService.getUserById(req.params.uid)));
+    res.send(UserService.getUserById(req.params.uid));
 });
 
 router.get("/benefit/:bid", function (req, res) {

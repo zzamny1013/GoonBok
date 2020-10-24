@@ -8,4 +8,4 @@ LoginService.getUserByUid = (uid) => {
 }
 
 
-module.export = LoginService;
+export default LoginService;
