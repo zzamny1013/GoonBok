@@ -9,21 +9,21 @@
         <b-button @click="Home">Home</b-button>
         <b-card v-b-toggle.collapse-1 variant="primary">혜택분류</b-card>
         <b-collapse id="collapse-1" class="mt-0">
-            <b-card-text @click="listBef()">전체</b-card-text>
-            <b-card-text @click="listBef(0)">영화</b-card-text>
-            <b-card-text @click="listBef(1)">테마파크</b-card-text>
-            <b-card-text @click="listBef(2)">음식</b-card-text>
-            <b-card-text @click="listBef(3)">숙박</b-card-text>
-            <b-card-text @click="listBef(4)">레져</b-card-text>
-            <b-card-text @click="listBef(5)">복지</b-card-text>
-            <b-card-text @click="listBef(6)">기타</b-card-text>
+            <b-card-text @click="listBef('all', 'all')">전체</b-card-text>
+            <b-card-text @click="listBef('영화', 'all')">영화</b-card-text>
+            <b-card-text @click="listBef('테마파크', 'all')">테마파크</b-card-text>
+            <b-card-text @click="listBef('음식', 'all')">음식</b-card-text>
+            <b-card-text @click="listBef('숙박', 'all')">숙박</b-card-text>
+            <b-card-text @click="listBef('레저', 'all')">레져</b-card-text>
+            <b-card-text @click="listBef('복지', 'all')">복지</b-card-text>
+            <b-card-text @click="listBef('기타', 'all')">기타</b-card-text>
         </b-collapse>
         <b-card v-b-toggle.collapse-2 variant="primary">적용대상</b-card>
         <b-collapse id="collapse-2" class="mt-2">
-            <b-card-text @click="listBef(0)">간부</b-card-text>
-            <b-card-text @click="listBef(0)">병사</b-card-text>
-            <b-card-text @click="listBef(0)">예비군</b-card-text>
-            <b-card-text @click="listBef(0)">민간인</b-card-text>
+            <b-card-text @click="listBef('all', '간부')">간부</b-card-text>
+            <b-card-text @click="listBef('all', '병사')">병사</b-card-text>
+            <b-card-text @click="listBef('all', '예비군')">예비군</b-card-text>
+            <b-card-text @click="listBef('all', '민간인')">민간인</b-card-text>
         </b-collapse>
 		</div>
     </b-sidebar>
@@ -40,13 +40,9 @@ export default {
 		Home(){
 			this.$router.push({path:'/',query:this.body});
 		}
-		,listBef(msg){
-			this.$router.push({path:'/board/listBef',query:this.body});
-			this.serchBef(msg);
-		}
-		,serchBef(msg){
-			this.$router.push({path:'/board/listBef',query:this.body});
-			alert(msg);
+		,listBef(category, rank){
+			this.$router.push({path:'/board/listBef',query:{ category:category, rank:rank }});
+            console.log(rank)
 		}
 	}	
 }
