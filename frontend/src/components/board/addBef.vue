@@ -9,13 +9,13 @@
 						<col width="40px" />
 						<col width="160px" />
 						<col width="40px" />
-						<col width="690px" />
+						<col width="600px" />
 					</colgroup>
 					<tr>
 						<th>회사</th>
 						<td><input type="text" v-model="company" ref="company" size="12" placeholder="회사"/></td>
 						<th>제목</th>
-						<td><input type="text" v-model="title" ref="company" size="75" placeholder="Title"/></td>
+						<td><input type="text" v-model="title" ref="title" size="95" placeholder="Title"/></td>
 
 					</tr>
 					<tr>
@@ -54,8 +54,8 @@
 		</div>
 
 		<div class="btnWrap">
-			<a href="javascript:;" @click="fnList" class="btn">목록</a>
-			<a href="javascript:;" @click="fnAddProc" class="btnAdd btn">등록</a>
+			<a href="javascript:;" @click="listBef" class="btn">목록</a>
+			<a href="javascript:;" @click="fnAddBef" class="btnAdd btn">등록</a>
 		</div>	
 	</div>
 </template>
@@ -64,19 +64,27 @@
 export default {
 	data() { //변수 생성
 		return{
-			board_code:'news'
-			,title:''
-			,cont:''
-			,id:'admin'
-			,form:'' //form 전송 데이터
+			bid:'news',
+			title:'',
+			company:'',
+			goon_type:'',
+			is_soldier:'',
+			category:'',
+			detail:'',
+			start_date:'',
+			end_date:'',
+			icon_path:'',
+			img_path:'',
+			link:'',
+			form:'' //form 전송 데이터
 		}
 	}
 	,methods:{
-		fnList(){ //리스트 화면으로 이동 함수
-			this.$router.push({path:'./list',query:this.body});
+		listBef(){ //혜택리스트 화면으로 이동 함수
+			this.$router.push({path:'./listBef',query:this.body});
 			
 		}
-		,fnAddProc() { //등록 프로세스
+		,fnAddBef() { //등록 프로세스
 			if(!this.company) { //제목이 없다면 값을 입력하라고 알려준다.
 				alert("제목을 입력해 주세요");
 				this.$refs.company.focus(); //방식으로 선택자를 찾는다.
@@ -84,10 +92,18 @@ export default {
 			}
 
 			this.form = { //backend로 전송될 POST 데이터
-				board_code:this.board_code
-				,company:this.company
-				,detail:this.detail
-				,id:this.id
+				bid:this.bid,
+				title:this.title,
+				company:this.company,
+				goon_type:this.goon_type,
+				is_soldier:this.is_soldier,
+				category:this.category,
+				detail:this.detail,
+				start_date:this.start_date,
+				end_date:this.end_date,
+				icon_path:this.icon_path,
+				img_path:this.img_path,
+				link:this.link
 			} 
 			
 			this.$axios.post('http://localhost:3000/api/board',this.form)

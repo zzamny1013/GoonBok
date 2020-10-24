@@ -4,7 +4,7 @@
 		<div class="menuWrap">
 			<ul class="menu">
 				<li><b-button-group size="sm">
-				<b-button @click="listAddFn" >등록</b-button>
+				<b-button @click="addBef" >등록</b-button>
 				<b-button @click="Home">Home</b-button>
 				<b-button @click="userFn">김승운님</b-button>
 				<b-button @click="userBef">쿠폰함</b-button></b-button-group></li>
@@ -40,8 +40,8 @@ export default {
 	}
 	,
 	methods:{
-		listAddFn(){
-			this.$router.push({path:'/board/Write',query:this.body});
+		addBef(){
+			this.$router.push({path:'/board/addBef',query:this.body});
 		}
 		,Home(){
 			this.$router.push({path:'/',query:this.body});
@@ -53,40 +53,14 @@ export default {
 			this.$router.push({path:'/board/userBef',query:this.body});
 		}
 		,Bef(msg){
-			this.$router.push({path:'/board/userBef',query:this.body});
+			this.$router.push({path:'/board/listBef',query:this.body});
 			this.serchBef(msg);
 		}
 		,serchBef(msg){
-			this.$router.push({path:'/board/userBef',query:this.body});
+			this.$router.push({path:'/board/listBef',query:this.body});
 			alert(msg);
 		}
-		,fnAddProc() { //등록 프로세스
-			if(!this.subject) { //제목이 없다면 값을 입력하라고 알려준다.
-				alert("제목을 입력해 주세요");
-				this.$refs.subject.focus(); //방식으로 선택자를 찾는다.
-				return;
-			}
-
-			this.form = { //backend로 전송될 POST 데이터
-				board_code:this.board_code
-				,subject:this.subject
-				,cont:this.cont
-				,id:this.id
-			} 
-			
-			this.$axios.post('http://localhost:3000/api/board',this.form)
-			.then((res)=>{
-				if(res.data.success) {
-					alert('등록되었습니다.');
-					this.fnList();
-				} else {
-					alert("실행중 실패했습니다.\n다시 이용해 주세요");
-				}
-			})
-			.catch((err)=>{
-				console.log(err);
-			})
-		}
+		
 	}	
 }
 </script>
