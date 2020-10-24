@@ -18,8 +18,8 @@ import Footer from './components/common/Footer';
 export default {
   name: 'App',
   components: {
-    Header
-    ,Footer  
+    Header,
+    Footer
   }
 }
 </script>
