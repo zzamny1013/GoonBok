@@ -19,39 +19,36 @@
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 * ECMAScript 6 지원 브라우저 사용
-* 권장: Google Chrome 버젼 77 이상
+* 권장: Google Chrome
 
-## 기술 스택 (Technique Used) (예시)
+## 기술 스택 (Technique Used) 
 ### Server(back-end)
- -  nodejs, php, java 등 서버 언어 버전 
- - express, laravel, sptring boot 등 사용한 프레임워크 
- - DB 등 사용한 다른 프로그램 
+ - nodejs v12.19.0
+ - 프레임워크 : express.js
+ - DB : MySQL 
  
 ### front-end
- -  react.js, vue.js 등 사용한 front-end 프레임워크 
- -  UI framework
- - 기타 사용한 라이브러리
+ - 프레임워크 : vue.js
+ - UI framework : bootstrap-vue
 
-## 설치 안내 (Installation Process)
+## 설치 안내 (Installation Process)(개발 테스트용)
 ```bash
-$ git clone git주소
-$ yarn or npm install
-$ yarn start or npm run start
+$ git clone https://github.com/osamhack2020/WEB_AmongUs_0262
+$ cd ./frontend
+$ npm run serve
+터미널 하나 더 킨 후
+$ cd ./backend
+$ yarn start
 ```
 
 ## 프로젝트 사용법 (Getting Started)
-**마크다운 문법을 이용하여 자유롭게 기재**
 
-잘 모를 경우
-구글 검색 - 마크다운 문법
-[https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017](https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017)
-
- 편한 마크다운 에디터를 찾아서 사용
- 샘플 에디터 [https://stackedit.io/app#](https://stackedit.io/app#)
  
 ## 팀 정보 (Team Information)
-- hong gil dong (hong999@gmail.com), Github Id: gildong999
-- kim su ji (suji999@gmail.com), Github Id: suji999
+- 팀장, FE : Kim Min Chul (kminchul95@naver.com), Github Id: nyan101
+- BE : Kim Jae Min (msyh0207@naver.com), Github Id: zzamny1013
+- FE : Kim Seung Un (seung1457@naver.com), Github Id: ku1457
+- App : Lee Joong Hoon (), Github Id: DoubleHoon
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
- * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
+ * [MIT](https://github.com/osamhack2020/WEB_AmongUs_0262/blob/master/license.md)
