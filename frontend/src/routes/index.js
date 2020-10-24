@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import main from '@/components/main'; //메인 컴포넌트 호출
+import main from '@/components/main.vue'; //메인 컴포넌트 호출
 import userBef from '@/components/board/userBef'; //게시판 리스트 컴포넌트 호출
 import Write from '@/components/board/Write'; //게시판 리스트 컴포넌트 호출
 

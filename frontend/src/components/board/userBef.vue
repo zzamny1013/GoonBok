@@ -16,7 +16,6 @@
 
 <script>
 export default {
-	/**
 	methods:{
 		getList() {
 			this.$axios.get("http://localhost:3000/api/board")
@@ -27,7 +26,7 @@ export default {
 				console.log(err);
 			})
 		}
-	}**/
+	}
 }
 </script>
 

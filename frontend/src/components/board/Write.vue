@@ -9,7 +9,7 @@
 						<col width="40px" />
 						<col width="160px" />
 						<col width="40px" />
-						<col width="*" />
+						<col width="690px" />
 					</colgroup>
 					<tr>
 						<th>회사</th>
@@ -30,6 +30,7 @@
 						<th>신분</th>
 						<td colspan="3">
 						<select name="goon_type">
+							<option value="0">전체</option>
 							<option value="1">육군</option>
 							<option value="2">해군</option>
 							<option value="3">공군</option>
@@ -37,6 +38,7 @@
 						</select>
 						
 						<select name="is_soldier">
+							<option value="0">전체</option>
 							<option value="1">간부</option>
 							<option value="2">병사</option>
 							<option value="3">예비군</option>
