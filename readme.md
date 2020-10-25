@@ -15,13 +15,13 @@
 
 ## 기능 설계
  -  발사믹, 카카오 오븐 등 본인이 편한 목업 프레임워크를 이용하여 제작 후 링크 
-![Home](https://user-images.githubusercontent.com/72017937/97103371-4e34a580-16ef-11eb-8fac-2f313eb6d464.JPG)
-![sidebar1](https://user-images.githubusercontent.com/72017937/97103389-715f5500-16ef-11eb-8112-df3817fd31db.JPG)
-![sidebar2](https://user-images.githubusercontent.com/72017937/97103390-73c1af00-16ef-11eb-82d6-d7bfb2e3ffb9.JPG)
-![login](https://user-images.githubusercontent.com/72017937/97103395-79b79000-16ef-11eb-9b0f-252e51a7544d.JPG)
-![Allbef](https://user-images.githubusercontent.com/72017937/97103398-7c19ea00-16ef-11eb-97c9-82a1ff8e740d.JPG)
-![adminLog](https://user-images.githubusercontent.com/72017937/97103399-7de3ad80-16ef-11eb-9f9c-9897522042f8.JPG)
-![addBef](https://user-images.githubusercontent.com/72017937/97103400-80460780-16ef-11eb-9352-d87cbc1c24ff.JPG)
+![Home](https://user-images.githubusercontent.com/72017937/97103865-aae58f80-16f2-11eb-9d52-98424e06ece6.JPG)
+![sidebar1](https://user-images.githubusercontent.com/72017937/97103867-acaf5300-16f2-11eb-9b22-34bf8b667881.JPG)
+![sidebar2](https://user-images.githubusercontent.com/72017937/97103869-ade08000-16f2-11eb-90ad-fe010f827deb.JPG)
+![login](https://user-images.githubusercontent.com/72017937/97103872-b1740700-16f2-11eb-9664-b526574d1048.JPG)
+![Allbef](https://user-images.githubusercontent.com/72017937/97103876-b46ef780-16f2-11eb-8f14-4214f1de1e07.JPG)
+![adminLog](https://user-images.githubusercontent.com/72017937/97103877-b769e800-16f2-11eb-8bdb-f5870b0495a0.JPG)
+![addBef](https://user-images.githubusercontent.com/72017937/97103879-b89b1500-16f2-11eb-99ec-71841219a72e.JPG)
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 * ECMAScript 6 지원 브라우저 사용
