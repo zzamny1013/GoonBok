@@ -15,7 +15,13 @@
 
 ## 기능 설계
  -  발사믹, 카카오 오븐 등 본인이 편한 목업 프레임워크를 이용하여 제작 후 링크 
- - 수기로 작성시 찍어서 올려주세요
+![Home](https://user-images.githubusercontent.com/72017937/97103371-4e34a580-16ef-11eb-8fac-2f313eb6d464.JPG)
+![sidebar1](https://user-images.githubusercontent.com/72017937/97103389-715f5500-16ef-11eb-8112-df3817fd31db.JPG)
+![sidebar2](https://user-images.githubusercontent.com/72017937/97103390-73c1af00-16ef-11eb-82d6-d7bfb2e3ffb9.JPG)
+![login](https://user-images.githubusercontent.com/72017937/97103395-79b79000-16ef-11eb-9b0f-252e51a7544d.JPG)
+![Allbef](https://user-images.githubusercontent.com/72017937/97103398-7c19ea00-16ef-11eb-97c9-82a1ff8e740d.JPG)
+![adminLog](https://user-images.githubusercontent.com/72017937/97103399-7de3ad80-16ef-11eb-9f9c-9897522042f8.JPG)
+![addBef](https://user-images.githubusercontent.com/72017937/97103400-80460780-16ef-11eb-9352-d87cbc1c24ff.JPG)
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 * ECMAScript 6 지원 브라우저 사용
