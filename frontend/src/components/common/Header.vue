@@ -1,7 +1,9 @@
 <template>
 	<header>
 		<Sidebar />
-		<h1> 군인종합복지포털(군복) </h1>
+		<img alt="Vue logo" src="../../assets/logo.png" width="150">
+		<h1>군복</h1>
+		<h4>군인종합복지포털</h4>
         <div class="menuWrap">
 			<ul class="menu">
 				<li>
@@ -201,10 +203,10 @@ export default {
 </script>
 
 <style scoped>
-header{width:100%; text-align:center; position:relative; height:150px; border-bottom:1px solid #35495e}
-header h1{padding: 20px}
+header{width:100%; text-align:center; position:relative; height:230px; border-bottom:1px solid #35495e}
+header img {position:absolute; top:10px; right:60%;}
 header ul.menu:after{display:block; clear:both; content:'';}
-header ul.menu{position:absolute; top:70px; right:10px;}
+header ul.menu{position:absolute; top:150px; right:10px;}
 header ul.menu li{float:left; padding:1px 20px; list-style:none;}
 
 a{text-decoration:none; color:#333;}

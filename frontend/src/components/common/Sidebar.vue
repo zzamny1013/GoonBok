@@ -1,12 +1,12 @@
 <template>
   <div>
-    <img v-b-toggle.sidebar-1 align="left" alt="Vue logo" src="../../assets/logo.png" width="80">
+    <div align="left" style="margin:25px 0 0 50px;"><b-button v-b-toggle.sidebar-1 pill variant="success">SideBar</b-button></div>
     <b-sidebar id="sidebar-1" title="Sidebar" shadow>
       <div class="px-3 py-2">
         <img alt="Vue logo" src="../../assets/logo.png" width="80">
       </div>
       <div>
-        <b-button @click="Home">Home</b-button>
+        <b-button variant="outline-secondary" @click="Home">Home</b-button>
         <b-card v-b-toggle.collapse-1 variant="primary">혜택분류</b-card>
         <b-collapse id="collapse-1" class="mt-0">
             <b-card-text @click="listBef('all', 'all')">전체</b-card-text>

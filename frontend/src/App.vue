@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <serBar />
     <main msg="군인하길 잘했다."/>
     <div class="container"> <!-- class 추가 -->
       <router-view />
@@ -13,11 +14,13 @@
 <script>
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
+import serBar from './components/common/serBar';
 
 export default {
   name: 'App',
   components: {
     Header,
+    serBar,
     Footer
   }
 }
