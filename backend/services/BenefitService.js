@@ -1,10 +1,12 @@
 import getConnection from "../routes/db/database.js";
 import benefits from "../test/benefits.js";
+import mysql from 'mysql2/promise';
+import dbconfig from '../routes/db/dbconfig.js';
 
 const BenefitService = {};
 
 BenefitService.getBenefits = () => {
-    /*let benefits = null;
+    let benefits = null;
 
     getConnection((conn) => {
         conn.query("SELECT * FROM benefit", (err, result) => {
@@ -16,7 +18,7 @@ BenefitService.getBenefits = () => {
             }
         });
         conn.release();
-    });*/
+    });
 
 
     //test
@@ -49,10 +51,10 @@ BenefitService.getBenefitById = (id) => {
     return null;
 };
 
-BenefitService.getBenefitsByParams = (params) => {
+BenefitService.getBenefitsByParams = async (params) => {
     const conditions = [];
     const values = [];
-    let result = {};
+    let result = [];
 
     for (let p in params) {
         if(p != "now"){
@@ -65,8 +67,8 @@ BenefitService.getBenefitsByParams = (params) => {
     //if (req.query.colour) { conditions.push(`colour=?`); values.push(req.query.colour); }
     //if (req.query.size) { conditions.push(`size=?`); values.push(req.query.size); }
 
-    getConnection((conn) => {
-        conn.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""),
+    /*getConnection(async (conn) => {
+        await conn.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""),
             values,
             (err, ret) => {
                 if (err) {
@@ -74,14 +76,22 @@ BenefitService.getBenefitsByParams = (params) => {
                     throw err;
                 } else {
                     result = ret;
+                    console.log("kk");
                 }
             });
         conn.release();
-    });
+    });*/
+
+    let pool = mysql.createPool(dbconfig);
+    let connection = await pool.getConnection(async conn => conn);
+    result = await connection.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
+    connection.release();
 
     //result에서 현재인지 과거인지 예정인지 걸러내는 코드
     const date = new Date();
-    const data = result.filter(b=>{
+
+    const data = result[0].filter(b=>{
+        console.log("haha");
         const arr1 = b.start_date.split('-');
         const arr2 = b.end_date.split('-');
 
@@ -90,8 +100,7 @@ BenefitService.getBenefitsByParams = (params) => {
 
         return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
     })
-
-
+    
     return data;
 };
 

@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
 });
 const uploader = multer({storage:storage});
 
-router.get("/benefit", function (req, res) {
-    res.send(BenefitService.getBenefitsByParams(req.query));
+router.get("/benefit", async function (req, res) {
+    res.send(await BenefitService.getBenefitsByParams(req.query));
 });
 
 router.get("/user/:uid", function (req, res) {
