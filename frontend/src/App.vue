@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Header />
-    
     <main msg="군인하길 잘했다."/>
     <div class="container"> <!-- class 추가 -->
       <router-view />
