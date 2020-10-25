@@ -5,7 +5,7 @@ import BenefitService from "../services/BenefitService.js";
 const router = express.Router();
 
 router.get("/benefit", function (req, res) {
-    res.send(JSON.stringify(BenefitService.getBenefits()));
+    res.send(BenefitService.getBenefitsByParams(req.query));
 });
 
 router.get("/user/:uid", function (req, res) {
@@ -13,7 +13,7 @@ router.get("/user/:uid", function (req, res) {
 });
 
 router.get("/benefit/:bid", function (req, res) {
-    res.send(JSON.stringify(BenefitService.getBenefitById(req.params.bid)));
+    res.send(BenefitService.getBenefitById(req.params.bid));
 });
 
 router.post("/benefit", (req, res) => {
