@@ -4,6 +4,57 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    Hey, this is index page
+    <div>
+      <h1>혜택카드 등록</h1>
+  
+      <div class="AddWrap">
+        <form action="/api/benefit" method="POST">
+          <table class="tbAdd">
+            <colgroup>
+              <col width="40px" />
+              <col width="160px" />
+              <col width="40px" />
+              <col width="600px" />
+            </colgroup>
+            <tr>
+              <th>회사</th>
+              <td><input type="text" name="company" ref="company" size="12" placeholder="회사"/></td>
+              <th>제목</th>
+              <td><input type="text" name="title" ref="title" size="95" placeholder="Title"/></td>
+  
+            </tr>
+            <tr>
+              <th>기간설정</th>
+              <td colspan="3"><pre>시작일 : <input type="date" name="start_date" ref="start_date" size="15" />      종료일 : <input type="date" name="end_date" ref="end_date" size="15"/></pre></td>
+            </tr>
+            <tr>
+              <th>내용</th>
+              <td colspan="3"><textarea name="detail" ref="detail"></textarea></td>
+            </tr>
+            <tr>
+              <th>신분</th>
+              <td colspan="3">
+              
+              <select name="target">
+                <option value="0">전체</option>
+                <option value="1">간부</option>
+                <option value="2">병사</option>
+                <option value="3">예비군</option>
+                <option value="4">민간인</option>
+              </select>
+              </td>
+            </tr>
+            <tr>
+              <th>로고첨부</th>
+              <input type="submit"/>
+            </tr>
+          </table>
+        </form>
+      </div>
+  
+      <div class="btnWrap">
+        <a href="javascript:;" @click="listBef" class="btn">목록</a>
+        
+    </div>
   </body>
 </html>

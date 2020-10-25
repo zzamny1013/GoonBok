@@ -82,10 +82,12 @@ BenefitService.getBenefitsByParams = async (params) => {
         conn.release();
     });*/
 
-    let pool = mysql.createPool(dbconfig);
-    let connection = await pool.getConnection(async conn => conn);
-    result = await connection.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
-    connection.release();
+    //let pool = mysql.createPool(dbconfig);
+    //let connection = await pool.getConnection(async conn => conn);
+    //result = await connection.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
+    //connection.release();
+
+    result = await getConnection("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
 
     //result에서 현재인지 과거인지 예정인지 걸러내는 코드
     const date = new Date();

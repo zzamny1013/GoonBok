@@ -9,6 +9,7 @@ import logger from "morgan";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import ejs from 'ejs';
+import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
@@ -35,6 +36,9 @@ app.use(
 
 app.use(express.static("public"));
 app.use(logger("dev"));
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 app.use("/", mainRouter);
 app.use("/login", loginRouter);

@@ -29,7 +29,7 @@ router.get("/benefit/:bid", function (req, res) {
 });
 
 router.post("/benefit", uploader.single('logo'), (req, res) => {
-    /*const benefit = {
+    const benefit = {
         title: req.body.title,
         company: req.body.company,
         target: req.body.target,
@@ -40,9 +40,9 @@ router.post("/benefit", uploader.single('logo'), (req, res) => {
         icon_path: req.body.icon_path,
         img_path: req.body.img_path,
         link: req.body.link
-    };*/
+    };
 
-    const benefit = {
+    /*const benefit = {
         title: "빕스가 대한민국 군인 여러분을 응원합니다.",
         company: "VIPS",
         target: "3",
@@ -53,7 +53,7 @@ router.post("/benefit", uploader.single('logo'), (req, res) => {
         icon_path: null,
         img_path: null,
         link:  "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1"
-    };
+    };*/
 
     BenefitService.addBenefit(benefit);
 });
