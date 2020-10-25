@@ -20,7 +20,7 @@ export default {
                 },
                 {
                     company: "에버랜드",
-                    title: "휴가증 지참 시 애버랜드 무료입장",
+                    title: "휴가증 지참 시 에버랜드 무료입장",
                     detail: "detail 추가 필요",
                     target: ["병사", "간부"],
                     category : "테마파크"
@@ -163,11 +163,24 @@ export default {
     computed : {
         filteredBenefits(){
             var arr = [];
+            var category = 'all';
+            var rank = 'all';
+            var keyword = this.$route.query.keyword
+
+            if(this.$route.query.category)
+                category = this.$route.query.category;
+            if(this.$route.query.rank)
+                category = this.$route.query.rank;
+
             for(var item of this.benefits)
             {
-                var flag1 = (this.$route.query.category=='all') || (item.category == this.$route.query.category);
-                var flag2 = (this.$route.query.rank=='all') || (item.target.indexOf(this.$route.query.rank) != -1);
-                if(flag1 && flag2)
+                var flagCategory = (category=='all') || (item.category == category);
+                var flagRank = (rank=='all') || (item.target.indexOf(rank) != -1);
+                var flagKeyword = (!keyword);
+                if(keyword)
+                   flagKeyword = (item.title.indexOf(keyword) != -1) || (item.detail.indexOf(keyword) != -1);
+
+                if(flagCategory && flagRank && flagKeyword)
                     arr.push(item);
             }
             return arr;
