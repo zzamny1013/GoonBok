@@ -37,6 +37,11 @@
  - 프레임워크 : vue.js
  - UI framework : bootstrap-vue
 
+### App
+ - react-native v0.63.3
+ - react-native-cli v2.0.1
+ - native-base v2.13.14
+
 ## 설치 안내 (Installation Process)(개발 테스트용)
 ```bash
 $ git clone https://github.com/osamhack2020/WEB_AmongUs_0262
@@ -54,7 +59,7 @@ $ yarn start
 - 팀장, FE : Kim Min Chul (kminchul95@naver.com), Github Id: nyan101
 - BE : Kim Jae Min (msyh0207@naver.com), Github Id: zzamny1013
 - FE : Kim Seung Un (seung1457@naver.com), Github Id: ku1457
-- App : Lee Joong Hoon (), Github Id: DoubleHoon
+- App : Lee Joong Hoon (doublehoon99@gmail.com), Github Id: DoubleHoon
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
  * [MIT](https://github.com/osamhack2020/WEB_AmongUs_0262/blob/master/license.md)
