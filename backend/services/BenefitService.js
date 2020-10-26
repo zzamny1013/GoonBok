@@ -1,4 +1,4 @@
-import getConnection from "../routes/db/database.js";
+import {getConnection, getConnectionForAdd} from "../routes/db/database.js";
 import benefits from "../test/benefits.js";
 import mysql from 'mysql2/promise';
 import dbconfig from '../routes/db/dbconfig.js';
@@ -89,16 +89,15 @@ BenefitService.getBenefitsByParams = async (params) => {
 
     result = await getConnection("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
 
-    //result에서 현재인지 과거인지 예정인지 걸러내는 코드
+    //result에서 현재인지 과거인지 예정인지 걸러내는 코드(현재 현재인 것만 출력하는 코드 작성. 필요 시 조건문과 부등호 방향 바꿔서 구현 가능)
     const date = new Date();
 
     const data = result[0].filter(b=>{
-        console.log("haha");
         const arr1 = b.start_date.split('-');
         const arr2 = b.end_date.split('-');
 
         const start = new Date(arr1[0], parseInt(arr1[1])-1, arr1[2]);
-        const end = new Date(arr2[0], parseInt(arr2[1])-1, arr2[2]);
+        const end = new Date(arr2[0], parseInt(arr2[1])-1, arr2[2]); 
 
         return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
     })
@@ -106,8 +105,8 @@ BenefitService.getBenefitsByParams = async (params) => {
     return data;
 };
 
-BenefitService.addBenefit = (benefit) => {
-    getConnection((conn) => {
+BenefitService.addBenefit = async (benefit) => {
+    /*getConnection((conn) => {
         conn.query("INSERT INTO benefit set ?", benefit, (err, result) => {
             if (err) {
                 console.log(err);
@@ -115,7 +114,8 @@ BenefitService.addBenefit = (benefit) => {
             }
         });
         conn.release();
-    });
+    });*/
+    await getConnectionForAdd("INSERT INTO benefit set ?", benefit);
 };
 
 export default BenefitService;

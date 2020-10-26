@@ -56,8 +56,8 @@ router.post("/benefit", uploader.single('logo'), (req, res) => {
     };*/
 
     BenefitService.addBenefit(benefit);
+    res.redirect('/');
 });
 
-router.post("/", function (req, res) {});
 
 export default router;

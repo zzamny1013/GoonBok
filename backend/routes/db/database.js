@@ -7,16 +7,16 @@ import config from './dbconfig.js';
 
 let pool = mysql.createPool(config);
 
-/*async function getConnection(callback) {
+async function getConnectionForAdd(callback) {
     await pool.getConnection(async function (err, conn) {
         if (!err) {
             callback(conn);
         }
     });
-}*/
+}
 
 async function getConnection(query, values){
-    const result = [];
+    let result = [];
     try{
         let connection = await pool.getConnection(async conn => conn);
         try{
@@ -32,4 +32,4 @@ async function getConnection(query, values){
     return result;
 }
 
-export default getConnection;
+export {getConnection, getConnectionForAdd};

@@ -1,0 +1,1 @@
+INSERT INTO user VALUES ("admin", "1q2w3e4r!","어드민", "111111", 1, 1,"민간인", "admin@admin.com", "01088888888", "2222");
