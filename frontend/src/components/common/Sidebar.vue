@@ -6,7 +6,7 @@
         <img alt="Vue logo" src="../../assets/logo.png" width="80">
       </div>
       <div>
-        <b-button variant="outline-secondary" @click="Home">Home</b-button>
+        <b-button variant="light" @click="Home">Home</b-button>
         <b-card v-b-toggle.collapse-1 variant="primary">혜택분류</b-card>
         <b-collapse id="collapse-1" class="mt-0">
             <b-card-text @click="listBef('all', 'all')">전체</b-card-text>

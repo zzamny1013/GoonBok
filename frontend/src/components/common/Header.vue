@@ -3,7 +3,7 @@
 		<Sidebar />
 		<img alt="Vue logo" src="../../assets/logo.png" width="150">
 		<h1>군복</h1>
-		<h4>군인종합복지포털</h4>
+		<h4><div><span style="color: #42b983;">군</span>인종합<span style="color: #42b983;">복</span>지포털</div></h4>
         <div class="menuWrap">
 			<ul class="menu">
 				<li>
