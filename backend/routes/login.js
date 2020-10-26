@@ -53,11 +53,18 @@ router.post("/", async function (req, res, next) {
     if (dbPassword === hashPassword) {
         console.log("비밀번호 일치");
         // 세션 설정
-        req.session.email = body.email;
+        req.session.uid = body.uid;
     } else {
         console.log("비밀번호 불일치");
     }
     //res.redirect("/user/login");
 });
+
+router.get("/logout", function(req,res,next){
+    req.session.destroy();
+    res.clearCookie('sid');
+  
+    //res.redirect("/user/login")
+  })
 
 export default router;

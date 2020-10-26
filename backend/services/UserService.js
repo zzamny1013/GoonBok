@@ -1,16 +1,13 @@
-import {getConnection} from "../routes/db/database.js";
-//import users from '../test/users.js';
-//const fs = require('fs');
-//import fs from 'fs';
+import {getConnection} from "./db/database.js";
 
 const UserService = {
-
     getUserById: async (uid) => {
         let result = await getConnection("SELECT * FROM user WHERE uid = ?", uid);
         return result;
     },
 
-    addUser: (user) => {
+
+    addUser: async (user) => {
         let salt = Math.round(new Date().valueOf() * Math.random()) + "";
         let hashPassword = createHash("sha512")
             .update(user.pw + salt)
@@ -18,16 +15,10 @@ const UserService = {
         user.pw = hashPassword;
         user.salt = salt;
 
-        getConnection((conn) => {
-            conn.query("INSERT INTO benefit set ?", user, (err, result) => {
-                if (err) {
-                    console.log(err);
-                    throw err;
-                }
-            });
-            conn.release();
-        });
+        await getConnection("INSERT INTO benefit set ?", user);
     }
+
+
 };
 
 export default UserService;
