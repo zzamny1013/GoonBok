@@ -6,48 +6,52 @@
 			<form>
 				<table class="tbAdd">
 					<colgroup>
-						<col width="40px" />
-						<col width="160px" />
-						<col width="40px" />
-						<col width="600px" />
+						<col width="100px" />
+						<col width="300px" />
+						<col width="100px" />
+						<col width="300px" />
+						<col width="100px" />
+						<col width="300px" />
 					</colgroup>
+					
 					<tr>
-						<th>회사</th>
-						<td><input type="text" v-model="company" ref="company" size="12" placeholder="회사"/></td>
 						<th>제목</th>
-						<td><input type="text" v-model="title" ref="title" size="95" placeholder="Title"/></td>
+						<td colspan="5"><input type="text" v-model="title" ref="title" size="125" placeholder="Title"/></td>
 
 					</tr>
 					<tr>
-						<th>기간설정</th>
-						<td colspan="3"><pre>시작일 : <input type="date" v-model="start_date" ref="start_date" size="15" />      종료일 : <input type="date" v-model="end_date" ref="end_date" size="15"/></pre></td>
+						<th>회사</th>
+						<td><input type="text" v-model="company" ref="company" size="27" placeholder="회사"/></td>
+						<th>시작일</th>
+						<td><b-form-datepicker v-model="start_date" class="mb-2"></b-form-datepicker></td>
+						<th>종료일</th>
+						<td>
+						<b-form-datepicker v-model="end_date" class="mb-2"></b-form-datepicker>
+						<!--<input type="date" v-model="end_date" ref="end_date" size="27"/>-->
+						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="3"><textarea v-model="detail" ref="detail"></textarea></td>
+						<td colspan="5"><textarea v-model="detail" ref="detail"></textarea></td>
 					</tr>
 					<tr>
 						<th>신분</th>
 						<td colspan="3">
-						<select name="goon_type">
-							<option value="0">전체</option>
-							<option value="1">육군</option>
-							<option value="2">해군</option>
-							<option value="3">공군</option>
-							<option value="4">민간인</option>
-						</select>
-						
-						<select name="is_soldier">
-							<option value="0">전체</option>
-							<option value="1">간부</option>
-							<option value="2">병사</option>
-							<option value="3">예비군</option>
-							<option value="4">민간인</option>
-						</select>
+						<label><input type="checkbox" v-model="target" value="7">전체</label>
+						<label><input type="checkbox" v-model="target" value="4">간부</label>
+						<label><input type="checkbox" v-model="target" value="2">병사</label>
+						<label><input type="checkbox" v-model="target" value="1">예비군</label>
+						<input type="hidden" v-model="target" value="">
 						</td>
 					</tr>
 					<tr>
-						<th>로고첨부</th>
+						<th>Icon-path</th>
+						<td><input type="text" v-model="icon_path" placeholder="icon_path 입력"></td>
+						<th>IMG-path</th>
+						<td><input type="text" v-model="img_path" placeholder="img_path 입력"></td>
+						<th>link</th>
+						<td><input type="text" v-model="link" placeholder="link 입력"></td>
+
 					</tr>
 				</table>
 			</form>
@@ -55,7 +59,7 @@
 
 		<div class="btnWrap">
 			<a href="javascript:;" @click="listBef" class="btn">목록</a>
-			<a href="javascript:;" @click="fnAddBef" class="btnAdd btn">등록</a>
+			<a href="javascript:;" @click="test" class="btnAdd btn">등록</a>
 		</div>	
 	</div>
 </template>
@@ -67,8 +71,7 @@ export default {
 			bid:'news',
 			title:'',
 			company:'',
-			goon_type:'',
-			is_soldier:'',
+			target:'',
 			category:'',
 			detail:'',
 			start_date:'',
@@ -80,9 +83,14 @@ export default {
 		}
 	}
 	,methods:{
-		listBef(){ //혜택리스트 화면으로 이동 함수
+		test(){
+			alert(this.start_date+ ","+ this.end_date + "\n,"
+			+ this.bid + ","+ this.title + ","+ this. company + "\n,"
+			+ this.icon_path + ","+ this.img_path + ","+ this.link + "\n,"
+			+ this.target + ","+ this.category + ","+ this.detail);
+		}
+		,listBef(){ //혜택리스트 화면으로 이동 함수
 			this.$router.push({path:'./listBef',query:this.body});
-			
 		}
 		,fnAddBef() { //등록 프로세스
 			if(!this.company) { //제목이 없다면 값을 입력하라고 알려준다.
@@ -92,11 +100,9 @@ export default {
 			}
 
 			this.form = { //backend로 전송될 POST 데이터
-				bid:this.bid,
 				title:this.title,
 				company:this.company,
-				goon_type:this.goon_type,
-				is_soldier:this.is_soldier,
+				target:this.target,
 				category:this.category,
 				detail:this.detail,
 				start_date:this.start_date,
