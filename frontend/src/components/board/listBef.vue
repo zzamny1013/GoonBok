@@ -16,42 +16,48 @@ export default {
                     title: "VIPS 20% 할인(제휴카드 혜택 별도)",
                     detail: "detail 추가 필요",
                     target: ["병사", "간부"],
-                    category : "영화"
+                    category : "영화",
+                    img_path : '../../BefLogo/vips.png'
                 },
                 {
                     company: "에버랜드",
                     title: "휴가증 지참 시 에버랜드 무료입장",
                     detail: "detail 추가 필요",
                     target: ["병사", "간부"],
-                    category : "테마파크"
+                    category : "테마파크",
+                    img_path : 'https://ivdesign.co.kr/data/imagebox/1697/everland_resort02.jpg'
                 },
                 {
                     company: "CGV",
                     title: "예비군만 가능한 혜택입니다(테스트용)",
                     detail: "detail 추가필요",
                     target: ["예비군"],
-                    category : "영화"
+                    category : "영화",
+                    img_path : '../../BefLogo/cgv.png'
                 },
                 {
                     company: "아웃백",
                     title: "간부만 가능한 혜택입니다(테스트용)",
                     detail: "detail 추가필요",
                     target: ["간부"],
-                    category : "음식"
+                    category : "음식",
+                    img_path : ""
                 },
                 {
                     company: "음식점",
                     title: "병사만 가능한 혜택입니다(테스트용)",
                     detail: "detail 추가필요",
                     target: ["병사"],
-                    category : "음식"
+                    category : "음식",
+                    img_path : ""
                 },
                 {
                     company: "호텔스컴바인",
                     title: "민간인과 예비군만 가능한 혜택입니다(테스트용)",
                     detail: "detail 추가 필요",
                     target: ["민간인", "예비군"],
-                    category : "숙박"
+                    category : "숙박",
+                    img_path : ""
                 },
                 {
                     bid: "1",
