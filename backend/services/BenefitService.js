@@ -14,29 +14,6 @@ BenefitService.getBenefitsByParams = async (params) => {
         }
     }
 
-    //if (req.query.name) { conditions.push(`name=?`); values.push(req.query.name); }
-    //if (req.query.colour) { conditions.push(`colour=?`); values.push(req.query.colour); }
-    //if (req.query.size) { conditions.push(`size=?`); values.push(req.query.size); }
-
-    /*getConnection(async (conn) => {
-        await conn.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""),
-            values,
-            (err, ret) => {
-                if (err) {
-                    console.log(err);
-                    throw err;
-                } else {
-                    result = ret;
-                    console.log("kk");
-                }
-            });
-        conn.release();
-    });*/
-
-    //let pool = mysql.createPool(dbconfig);
-    //let connection = await pool.getConnection(async conn => conn);
-    //result = await connection.query("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
-    //connection.release();
 
     result = await getConnection("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
 
@@ -66,16 +43,6 @@ BenefitService.getBenefitsByParams = async (params) => {
 };
 
 BenefitService.addBenefit = async (benefit) => {
-    /*getConnection((conn) => {
-        conn.query("INSERT INTO benefit set ?", benefit, (err, result) => {
-            if (err) {
-                console.log(err);
-                throw err;
-            }
-        });
-        conn.release();
-    });*/
-    //await getConnectionForAdd("INSERT INTO benefit set ?", benefit);
     await getConnection("INSERT INTO benefit set ?", benefit);
 };
 

@@ -1,12 +1,8 @@
 import express from "express";
 import UserService from '../services/UserService.js';
 import { createHash } from "crypto";
-//import { connect } from "http2";
 
 const router = express.Router();
-
-
-//const models = require("../models");
 
 router.post("/sign_up", async function (req, res, next) {
     let body = req.body;
