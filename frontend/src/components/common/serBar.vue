@@ -20,8 +20,6 @@ export default {
             var rank = 'all';
             if(this.$route.query.category)
                 category = this.$route.query.category
-            if(this.$route.query.category)
-                category = this.$route.query.category
             if(this.$route.query.rank)
                 rank = this.$route.query.rank
             this.$router.push({path:'/board/listBef',query:{ category:category, rank:rank, keyword:kw }});

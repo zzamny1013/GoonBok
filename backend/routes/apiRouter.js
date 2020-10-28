@@ -1,32 +1,48 @@
 import express from "express";
+import multer from 'multer';
 import UserService from "../services/UserService.js";
 import BenefitService from "../services/BenefitService.js";
 
+
 const router = express.Router();
 
-router.get("/benefit", function (req, res) {
-    res.send(JSON.stringify(BenefitService.getBenefits()));
+const storage = multer.diskStorage({
+    destination: (req, file, callback)=>{
+        callback(null, "public/img/");
+    },
+    filename: (req, file, callback)=>{
+        callback(null, file.originalname);
+    }
+});
+const uploader = multer({storage:storage});
+
+router.get("/benefit", async function (req, res) {
+    res.send(await BenefitService.getBenefitsByParams(req.query));
 });
 
 router.get("/user/:uid", function (req, res) {
     res.send(UserService.getUserById(req.params.uid));
 });
 
-router.get("/benefit/:bid", function (req, res) {
-    res.send(JSON.stringify(BenefitService.getBenefitById(req.params.bid)));
-});
-
-router.post("/benefit", (req, res) => {
+router.post("/benefit", uploader.single('logo'), (req, res) => {
     const benefit = {
-        name: req.body.name,
+        title: req.body.title,
         company: req.body.company,
+        target: req.body.target,
+        category: req.body.category,
+        detail: req.body.detail,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
+        icon_path: req.body.icon_path,
+        img_path: req.body.img_path,
+        link: req.body.link
     };
 
     BenefitService.addBenefit(benefit);
+
+    //이 부분은 프론트엔드 단에서 해줄 것이라 믿습니다.
+    res.redirect('/');
 });
 
-router.post("/", function (req, res) {});
 
 export default router;

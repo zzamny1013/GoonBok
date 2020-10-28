@@ -1,12 +1,8 @@
 import express from "express";
 import UserService from '../services/UserService.js';
 import { createHash } from "crypto";
-//import { connect } from "http2";
 
 const router = express.Router();
-
-
-//const models = require("../models");
 
 router.post("/sign_up", async function (req, res, next) {
     let body = req.body;
@@ -53,11 +49,18 @@ router.post("/", async function (req, res, next) {
     if (dbPassword === hashPassword) {
         console.log("비밀번호 일치");
         // 세션 설정
-        req.session.email = body.email;
+        req.session.uid = body.uid;
     } else {
         console.log("비밀번호 불일치");
     }
     //res.redirect("/user/login");
 });
+
+router.get("/logout", function(req,res,next){
+    req.session.destroy();
+    res.clearCookie('sid');
+  
+    //res.redirect("/user/login")
+  })
 
 export default router;

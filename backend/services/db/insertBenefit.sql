@@ -1,0 +1,7 @@
+INSERT INTO benefit VALUES ("1", "빕스가 대한민국 군인 여러분을 응원합니다.", "VIPS", "011", "외식", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("2", "15프로 할인", "스타벅스", "111", "카페", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("3", "16프로 할인", "카페베네", "101", "카페", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("4", "17프로 할인", "아웃백", "110", "외식", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("5", "18프로 할인", "TGI", "100", "외식", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("6", "19프로 할인", "메가박스", "001", "영화", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");
+INSERT INTO benefit VALUES ("7", "20프로 할인", "케이티", "010", "기타", "스테이크 30%할인", "2020-10-01", "2022-09-30", "FE에서 수정하십쇼", "FE에서 수정하십쇼", "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1");

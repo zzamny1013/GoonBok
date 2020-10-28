@@ -9,6 +9,8 @@ import logger from "morgan";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import ejs from 'ejs';
+import bodyParser from "body-parser";
+
 const app = express();
 const port = 3000;
 
@@ -18,7 +20,7 @@ const __dirname = dirname(__filename);
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-app.engine("html", ejs.renderFile);
+app.engine("html", ejs.renderFile); 
 
 app.use(
     session({
@@ -35,10 +37,13 @@ app.use(
 app.use(express.static("public"));
 app.use(logger("dev"));
 
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
 app.use("/", mainRouter);
 app.use("/login", loginRouter);
 app.use("/api", apiRouter);
 
 const server = app.listen(port, function () {
-    console.log("Express server has started on port 3000");
+    console.log("Express server has started on port 3000(http://localhost:3000)");
 });

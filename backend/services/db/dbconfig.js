@@ -3,7 +3,7 @@ const config = {
   "user": "0262user",
   "port": 3306,
   "password": "0262fighting!",
-  "database": "amongusdb",
+  "database": "goondb",
   "connectionLimit": 30
 }
 
