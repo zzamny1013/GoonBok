@@ -26,5 +26,3 @@ CREATE TABLE user(
     salt VARCHAR(100),
     PRIMARY KEY(uid)
 ) default character set utf8;
-
-INSERT INTO benefit ()
