@@ -11,7 +11,7 @@
 팀명 텍스트 및 팀명 로고 이미지 **(택1)**
 
 ## 팀소개 및 프로잭트 설명 동영상
-![0262team](https://user-images.githubusercontent.com/43535460/97554078-9fa7a200-1a19-11eb-8678-930affae65bf.PNG)
+![Slide2](https://user-images.githubusercontent.com/43535460/97554274-de3d5c80-1a19-11eb-9774-73771b4b75de.jpg)
 
 ## 기능 설계
  -  카카오 오븐을 이용한 목업 설계 이미지입니다.
