@@ -46,8 +46,8 @@ $ yarn start
 ```
 
 ## 프로젝트 사용법 (Getting Started)
-AWS나 Azure같은 클라우드 웹 서비스를 사용하지 않아 BE 실행 시 데이터 테스트 케이스 추가가 필요합니다.
-그러나 본 프로젝트에서는 FE와 BE가 연동되지 않고, FE 자체의 테스트 데이터를 사용하기 때문에 심사하실 때 BE를 실행할 필요가 없습니다.
+AWS나 Azure같은 클라우드 웹 서비스를 사용하지 않아 BE 실행 시 데이터 테스트 케이스 추가가 필요합니다.  
+그러나 본 프로젝트에서는 FE와 BE가 연동되지 않고, FE 자체의 테스트 데이터를 사용하기 때문에 심사하실 때 BE를 실행할 필요가 없습니다.  
 
 ### 테스트 데이터베이스 추가하기(vs codespace(Ubuntu) 기준, windows 사용자라면 다른 방식으로 Mysql 설치 권장)
 ```bash
@@ -55,16 +55,16 @@ $ sudo apt-get install mysql-server
 $ sudo service mysql start
 $ mysql -uroot -p
 ```
-초기 비밀번호 없음. 만약 Permission denying 뜰 경우 sudo 붙여서 실행
+초기 비밀번호 없음. 만약 Permission denying 뜰 경우 sudo 붙여서 실행  
 
-이후 ./backend/test/createDatabase.sql 에 있는 명령어 실행하면 데이터베이스와 그에 접속할 수 있는 사용자 추가
-mysql 접속을 끊고 다시 접속
+이후 ./backend/test/createDatabase.sql 에 있는 명령어 실행하면 데이터베이스와 그에 접속할 수 있는 사용자 추가  
+mysql 접속을 끊고 다시 접속  
 ```bash
 $ mysql -u0262user -p goondb
 $ password: 0262fighting!
 ```
-0262user로 접속 후 ./backend/test/tables.sql에 있는 쿼리로 테이블 생성
-이후 ./backend/test/insertUser.sql 과 ./backend/test/insertBenefit.sql에 있는 테스트 케이스를 추가
+0262user로 접속 후 ./backend/test/tables.sql에 있는 쿼리로 테이블 생성  
+이후 ./backend/test/insertUser.sql 과 ./backend/test/insertBenefit.sql에 있는 테스트 케이스를 추가  
 
  
 ## 팀 정보 (Team Information)
