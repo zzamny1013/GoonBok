@@ -1,43 +1,13 @@
 <template>
-	<header>
-		<Sidebar />
-		<img alt="Vue logo" src="../../assets/logo.png" width="150" @click="Home">
-		<h1>군복</h1>
-		<h4><div><span style="color: #42b983;">군</span>인종합<span style="color: #42b983;">복</span>지포털</div></h4>
-        <div class="menuWrap">
-			<ul class="menu">
-				<li>
-					<div v-if=userIs_Admin><b-button variant="success" @click="addBef" size="sm">혜택추가</b-button></div>
-				</li>
-				<li><form>
-				<input type="text" v-model="pid">
-				<input type="text" v-model="name">
-				<input type="text" v-model="uid">
-				<div v-if=(log_check)>
-				<b-button-group size="sm">
-				<b-button variant="success" @click="Home">Home</b-button>
-				<b-button variant="success">~~~님</b-button>
-				<!--<b-button variant="success" @click="userBef">쿠폰함</b-button>-->
-				<b-button variant="success" @click="userModi">정보수정</b-button>
-				<b-button variant="success" @click="logout">로그아웃</b-button>
-				</b-button-group></div>
-				<div v-else>
-				<b-button-group size="sm">
-				<b-button variant="success" @click="Home">Home</b-button>
-				<b-button variant="success"><input v-model="uid" type="text" size="8" placeholder="ID"></b-button>
-				<b-button variant="success"><input v-model="pw" type="password" size="8" placeholder="PW"></b-button>
-				<b-button variant="success" @click="login">로그인</b-button>
-				</b-button-group>
-				</div>
-				</form>
-				</li>
-			</ul>
+	<div>
+		<h2>유저</h2>
+		<div v-for="item of filteredUser" :key="item.uid" :userInfo="item">
 		</div>
-	</header>
+	</div>
 </template>
 
 <script>
-import Sidebar from './Sidebar';
+import userInfom from '../board/userInfom';
 
 export default {
 	data() {
@@ -190,59 +160,28 @@ export default {
 			]
 		};
 	},
-	components:{
-		Sidebar
-	}
-	,
-	methods:{
-		addBef(){
-			this.$router.push({path:'/board/addBef',query:this.body});
-		}
-		,Home(){
-			this.$router.push({path:'/',query:this.body});
-		}
-		,userFn(){
-			this.$router.push({path:'/',query:this.body});
-		}
-		,userBef(){
-			this.$router.push({path:'/board/userBef',query:this.body});
-		}
-		,userModi(){
-			this.$router.push({path:'/board/userModi',query:{uid:uid}});
-		}
-		,log_check(){
-			if(this.pid==1){return true;}
-			else{ return false;}
-		}
-		,login() {
-			var arr = [];
-			var uid = this.$route.query.uid;
-			var pw = this.$route.query.pw;
+	computed : {
+        filteredUser(){
+            var arr = [];
+            var uid = this.$route.query.uid
+            alert(uid);
             for(var item of this.user)
             {
-				var flagUid = item.uid==uid;
-				var flagPw = item.pw == pw;
-                if(flagUid&&flagPw){
-					arr.push(item);
-					this.pid = 1;
-					this.name=arr.name;
-				}
-			}
-		}
-		,logout() {
-			this.pid='';
-		}
-
-	}	
+                var flagUid = (!uid);
+                if(uid)
+                   flagUid = (item.uid.indexOf(uid) != -1);
+                if(flagUid)
+                    arr.push(item);
+            }
+            return arr;
+        }
+    },
+	components:{
+		userInfom
+	}
 }
 </script>
 
 <style scoped>
-header{width:100%; text-align:center; position:relative; height:230px; border-bottom:1px solid #35495e}
-header img {position:absolute; top:10px; right:60%;}
-header ul.menu:after{display:block; clear:both; content:'';}
-header ul.menu{position:absolute; top:150px; right:10px;}
-header ul.menu li{float:left; padding:1px 20px; list-style:none;}
 
-a{text-decoration:none; color:#333;}
 </style>
