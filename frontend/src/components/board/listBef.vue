@@ -16,8 +16,8 @@ export default {
                     title: "VIPS 20% 할인(제휴카드 혜택 별도)",
                     detail: "detail 추가 필요",
                     target: ["병사", "간부"],
-                    category : "영화",
-                    img_path : '../../BefLogo/vips.png'
+                    category : "음식",
+                    img_path : '/BefLogo/vips.png'
                 },
                 {
                     company: "에버랜드",
@@ -33,7 +33,7 @@ export default {
                     detail: "detail 추가필요",
                     target: ["예비군"],
                     category : "영화",
-                    img_path : '../../BefLogo/cgv.png'
+                    img_path : '/BefLogo/cgv.png'
                 },
                 {
                     company: "아웃백",
@@ -41,7 +41,7 @@ export default {
                     detail: "detail 추가필요",
                     target: ["간부"],
                     category : "음식",
-                    img_path : ""
+                    img_path : "/BefLogo/outback.png"
                 },
                 {
                     company: "음식점",
@@ -49,15 +49,13 @@ export default {
                     detail: "detail 추가필요",
                     target: ["병사"],
                     category : "음식",
-                    img_path : ""
                 },
                 {
                     company: "호텔스컴바인",
                     title: "민간인과 예비군만 가능한 혜택입니다(테스트용)",
                     detail: "detail 추가 필요",
                     target: ["민간인", "예비군"],
-                    category : "숙박",
-                    img_path : ""
+                    category : "숙박"
                 },
                 {
                     bid: "1",
@@ -69,7 +67,7 @@ export default {
                     start_date: "2020-10-01",
                     end_date: "2022-09-30",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/vips.png",
                     link: "https://www.ivips.co.kr:7002/event/evtHotEventPrtTpl.asp?eventkey=247&pageseq=1"
                 },
                 {
@@ -82,7 +80,7 @@ export default {
                     start_date: "2020-09-09",
                     end_date: "2020-10-28",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/jasaeng.png",
                     link: "https://welfare.mmaa.or.kr/condo/web/notice/event_detail.jsp?board_id=1&titleid=120"
                 },
                 {
@@ -95,7 +93,7 @@ export default {
                     start_date: "2020-10-01",
                     end_date: "2020-10-31",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/eyereum.png",
                     link: "https://eyereum.com/news/event/view/57"
                 },
                 {
@@ -108,7 +106,7 @@ export default {
                     start_date: "2020-11-01",
                     end_date: "2021-5-31",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/yanadoo.jpg",
                     link: "https://www.yanadoo.co.kr/freepass/militaryPackage"
                 },
                 {
@@ -121,7 +119,7 @@ export default {
                     start_date: "2020-10-01",
                     end_date: "2021-04-30",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/hackers.jpg",
                     link: "https://fire.hackers.com/views/event/2020/0317/"
                 },
                 {
@@ -134,7 +132,7 @@ export default {
                     start_date: "2020-10-22",
                     end_date: "2020-10-31",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/uplus.jpg",
                     link: "https://www.uplussave.com/shop/cc/evntDetail.mhp?selectedSn=307#none"
                 },
                 {
@@ -147,7 +145,7 @@ export default {
                     start_date: "0001-01-01",
                     end_date: "9999-12-31",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/goonin.png",
                     link: "https://welfare.mmaa.or.kr/condo/web/welfareNew/WelfareNewGuide.jsp"
                 },
                 {
@@ -160,7 +158,7 @@ export default {
                     start_date: "0001-01-01",
                     end_date: "9999-12-31",
                     icon_path: "FE에서 수정하십쇼",
-                    img_path: "FE에서 수정하십쇼",
+                    img_path: "/BefLogo/daemyung.jpg",
                     link: "https://welfare.mmaa.or.kr/condo/web/welfareNew/WelfareNewGuide.jsp"
                 }
             ]
@@ -176,7 +174,7 @@ export default {
             if(this.$route.query.category)
                 category = this.$route.query.category;
             if(this.$route.query.rank)
-                category = this.$route.query.rank;
+                rank = this.$route.query.rank;
 
             for(var item of this.benefits)
             {

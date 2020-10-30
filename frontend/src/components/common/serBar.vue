@@ -1,5 +1,5 @@
 <template>
-	<div>
+    <div>
         <form>
             <input v-model="keyword" v-on:keyup.enter="SearchBenefit(keyword)" type="text" size="30">
             <b-button @click="SearchBenefit(keyword)" variant="secondary">Serch</b-button>
@@ -14,6 +14,7 @@ export default {
             keyword : ""
          };
     },
+
     methods : {
         SearchBenefit(kw){
             var category = 'all';
@@ -22,10 +23,11 @@ export default {
                 category = this.$route.query.category
             if(this.$route.query.rank)
                 rank = this.$route.query.rank
+
             this.$router.push({path:'/board/listBef',query:{ category:category, rank:rank, keyword:kw }});
             console.log(rank)
         }
-    }
+    }    
 }
 </script>
 

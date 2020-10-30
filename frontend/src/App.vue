@@ -29,7 +29,6 @@ export default {
 //https://imasoftwareengineer.tistory.com/42
 //https://fyzh99.tistory.com/46?category=837734
 //css 수정
-//transform:translate(-50%, -50%);
 <style>
 html,body{padding:0; margin:0;}
 #app {

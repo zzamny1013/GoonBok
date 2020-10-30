@@ -6,50 +6,41 @@
 			<form>
 				<table class="tbAdd">
 					<colgroup>
-						<col width="100px" />
-						<col width="300px" />
-						<col width="100px" />
-						<col width="300px" />
-						<col width="100px" />
-						<col width="300px" />
+						<col width="40px" />
+						<col width="160px" />
+						<col width="40px" />
+						<col width="600px" />
 					</colgroup>
-					
 					<tr>
+						<th>회사</th>
+						<td><input type="text" v-model="company" ref="company" size="12" placeholder="회사"/></td>
 						<th>제목</th>
-						<td colspan="5"><input type="text" v-model="title" ref="title" size="140" placeholder="Title"/></td>
+						<td><input type="text" v-model="title" ref="title" size="95" placeholder="Title"/></td>
 
 					</tr>
 					<tr>
-						<th>회사</th>
-						<td><input type="text" v-model="company" ref="company" size="30" placeholder="회사"/></td>
-						<th>시작일</th>
-						<td><b-form-datepicker v-model="start_date" class="mb-2"></b-form-datepicker></td>
-						<th>종료일</th>
-						<td>
-						<b-form-datepicker v-model="end_date" class="mb-2"></b-form-datepicker>
-						<!--<input type="date" v-model="end_date" ref="end_date" size="27"/>-->
-						</td>
+						<th>기간설정</th>
+						<td colspan="3"><pre>시작일 : <input type="date" v-model="start_date" ref="start_date" size="15" />      종료일 : <input type="date" v-model="end_date" ref="end_date" size="15"/></pre></td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="5"><textarea v-model="detail" ref="detail"></textarea></td>
+						<td colspan="3"><textarea v-model="detail" ref="detail"></textarea></td>
 					</tr>
 					<tr>
 						<th>신분</th>
-						<td colspan="3"><pre>
-						<label><input type="checkbox" v-model.number="target1" true-value="1" false-value="0"  @change="targetAdd()">전체</label>   <label><input type="checkbox" v-model.number="target2" true-value="1" false-value="0" @change="targetAdd()">간부</label>   <label><input type="checkbox" v-model.number="target3" true-value="1" false-value="0" @change="targetAdd()">병사</label>   <label><input type="checkbox" v-model.number="target4" true-value="1" false-value="0" @change="targetAdd()">예비군</label>   
-						<input type="hidden" v-model.number="target0" value="">
-						<span>{{target0}}</span>
-						<input type="hidden" v-model.number="target" value=""></pre>
+						<td colspan="3">
+						
+						<select name="is_soldier">
+							<option value="0">전체</option>
+							<option value="1">간부</option>
+							<option value="2">병사</option>
+							<option value="3">예비군</option>
+							<option value="4">민간인</option>
+						</select>
 						</td>
 					</tr>
 					<tr>
-						<th>Icon-path</th>
-						<td><input type="text" v-model="icon_path" placeholder="icon_path 입력" size="30"></td>
-						<th>IMG-path</th>
-						<td><input type="text" v-model="img_path" placeholder="img_path 입력" size="30"></td>
-						<th>link</th>
-						<td><input type="text" v-model="link" placeholder="link 입력" size="30"></td>
+						<th>로고첨부</th>
 					</tr>
 				</table>
 			</form>
@@ -57,7 +48,7 @@
 
 		<div class="btnWrap">
 			<a href="javascript:;" @click="listBef" class="btn">목록</a>
-			<a href="javascript:;" @click="test" class="btnAdd btn">등록</a>
+			<a href="javascript:;" @click="fnAddBef" class="btnAdd btn">등록</a>
 		</div>	
 	</div>
 </template>
@@ -69,7 +60,8 @@ export default {
 			bid:'news',
 			title:'',
 			company:'',
-			target:'',
+			goon_type:'',
+			is_soldier:'',
 			category:'',
 			detail:'',
 			start_date:'',
@@ -77,27 +69,13 @@ export default {
 			icon_path:'',
 			img_path:'',
 			link:'',
-			target0:'0000',
-			target1:'0',
-			target2:'0',
-			target3:'0',
-			target4:'0',
 			form:'' //form 전송 데이터
 		}
 	}
 	,methods:{
-		test(){
-			alert(this.start_date+ ","+ this.end_date + "\n,"
-			+ this.bid + ","+ this.title + ","+ this. company + "\n,"
-			+ this.icon_path + ","+ this.img_path + ","+ this.link + "\n,"
-			+ this.target0 + ","+ this.category + ","+ this.detail);
-		}
-		,targetAdd(){
-			this.target0 = this.target1 + this.target2 + this.target3 + this.target4; //타겟0은 보낼 값, 1은 전체의미 이후 2,3,4 는 이진수의개념으로 이해
-			//alert(this.target0);
-		}
-		,listBef(){ //혜택리스트 화면으로 이동 함수
+		listBef(){ //혜택리스트 화면으로 이동 함수
 			this.$router.push({path:'./listBef',query:this.body});
+			
 		}
 		,fnAddBef() { //등록 프로세스
 			if(!this.company) { //제목이 없다면 값을 입력하라고 알려준다.
@@ -107,9 +85,11 @@ export default {
 			}
 
 			this.form = { //backend로 전송될 POST 데이터
+				bid:this.bid,
 				title:this.title,
 				company:this.company,
-				target:this.target0,
+				goon_type:this.goon_type,
+				is_soldier:this.is_soldier,
 				category:this.category,
 				detail:this.detail,
 				start_date:this.start_date,
