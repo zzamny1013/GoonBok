@@ -26,3 +26,18 @@ CREATE TABLE user(
     salt VARCHAR(100),
     PRIMARY KEY(uid)
 ) default character set utf8;
+
+CREATE TABLE benefit2(
+    id INT,
+    banner VARCHAR(50),
+    keyword VARCHAR(30),
+    PRIMARY KEY(id)
+) DEFAULT character set utf8;
+
+CREATE TABLE liked(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    uid VARCHAR(30),
+    bid INT,
+    FOREIGN KEY(uid) REFERENCES BY user,
+    FOREIGN KEY(bid) REFERENCES BY benefit2
+) DEFAULT CHARACTER SET utf8;
