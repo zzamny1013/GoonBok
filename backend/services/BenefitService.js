@@ -42,6 +42,21 @@ BenefitService.getBenefitsByParams = async (params) => {
     return data;
 };
 
+BenefitService.getBenefitsByParams2 = async (params) => {
+    const conditions = [];
+    const values = [];
+    let result = [];
+
+    for (let p in params) {
+        conditions.push(p + '=?');
+        values.push(params[p]);
+    }
+
+    result = await getConnection("SELECT benefit2.bid as id, banner, uid as liked, keyword as KeyWord FROM benefit2 LEFT OUTER JOIN liked ON benefit2.bid = liked.bid" + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
+
+    return result[0];
+};
+
 BenefitService.addBenefit = async (benefit) => {
     await getConnection("INSERT INTO benefit set ?", benefit);
 };

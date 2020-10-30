@@ -20,6 +20,11 @@ router.get("/benefit", async function (req, res) {
     res.send(await BenefitService.getBenefitsByParams(req.query));
 });
 
+//parameter에 uid=user1 들어가 있을 것
+router.get("/benefit2", async function (req, res) {
+    res.send(await BenefitService.getBenefitsByParams2(req.query));
+});
+
 router.get("/user/:uid", function (req, res) {
     res.send(UserService.getUserById(req.params.uid));
 });
