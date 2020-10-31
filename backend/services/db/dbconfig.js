@@ -5,6 +5,6 @@ const config = {
   "password": "0262fighting!",
   "database": "goondb",
   "connectionLimit": 30
-}
+} 
 
 export default config;
