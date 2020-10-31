@@ -3,7 +3,7 @@ import {getConnection} from "./db/database.js";
 const UserService = {
     getUserById: async (uid) => {
         let result = await getConnection("SELECT * FROM user WHERE uid = ?", uid);
-        return result;
+        return result[0];
     },
 
 
