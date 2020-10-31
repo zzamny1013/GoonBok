@@ -1,9 +1,9 @@
-INSERT INTO user VALUES ("admin", "1q2w3e4r!","어드민", "111111", 1, 1,"민간인", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user1", "1q2w3e4r!","유저1", "111111", 0, 0,"병사", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user2", "1q2w3e4r!","유저2", "111111", 0, 0,"병사", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user3", "1q2w3e4r!","유저3", "111111", 0, 0,"병사", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user4", "1q2w3e4r!","유저4", "111111", 0, 0,"간부", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user5", "1q2w3e4r!","유저5", "111111", 0, 0,"간부", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user6", "1q2w3e4r!","유저6", "111111", 0, 0,"간부", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user7", "1q2w3e4r!","유저7", "111111", 0, 0,"예비역", "admin@admin.com", "01088888888", "2222");
-INSERT INTO user VALUES ("user8", "1q2w3e4r!","유저8", "111111", 0, 0,"예비역", "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("admin", "1q2w3e4r!","어드민", "111111", 1, 1, 8, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user1", "1q2w3e4r!","유저1", "111111", 0, 0, 2, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user2", "1q2w3e4r!","유저2", "111111", 0, 0, 2, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user3", "1q2w3e4r!","유저3", "111111", 0, 0, 2, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user4", "1q2w3e4r!","유저4", "111111", 0, 0, 1, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user5", "1q2w3e4r!","유저5", "111111", 0, 0, 1, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user6", "1q2w3e4r!","유저6", "111111", 0, 0, 1, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user7", "1q2w3e4r!","유저7", "111111", 0, 0, 4, "admin@admin.com", "01088888888", "2222");
+INSERT INTO user VALUES ("user8", "1q2w3e4r!","유저8", "111111", 0, 0, 4, "admin@admin.com", "01088888888", "2222");
