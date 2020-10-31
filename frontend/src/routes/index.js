@@ -12,7 +12,7 @@ export default new Router({ //라우터 연결
 		{
 			path:'/'
 			,name:main
-			,component:main
+			,component:listBef
 		}
 		,{
 			path:'/board/userBef'

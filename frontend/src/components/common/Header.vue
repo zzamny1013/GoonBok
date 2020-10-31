@@ -1,9 +1,11 @@
 <template>
 	<header>
 		<Sidebar />
-		<img alt="Vue logo" src="../../assets/logo.png" width="150">
-		<h1>군복</h1>
-		<h4><div><span style="color: #42b983;">군</span>인종합<span style="color: #42b983;">복</span>지포털</div></h4>
+		<a href="/">
+			<img alt="Vue logo" src="../../assets/logo.png" width="150" >
+			<h1>군복</h1>
+			<h4><div><span style="color: #42b983;">군</span>인종합<span style="color: #42b983;">복</span>지포털</div></h4>
+		</a>
         <div class="menuWrap">
 			<ul class="menu">
 				<li>
@@ -209,5 +211,5 @@ header ul.menu:after{display:block; clear:both; content:'';}
 header ul.menu{position:absolute; top:150px; right:10px;}
 header ul.menu li{float:left; padding:1px 20px; list-style:none;}
 
-a{text-decoration:none; color:#333;}
+a, a:hover{text-decoration:none; color:#333;}
 </style>
