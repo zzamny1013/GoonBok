@@ -25,8 +25,8 @@ router.get("/benefit2", async function (req, res) {
     res.send(await BenefitService.getBenefitsByParams2(req.query));
 });
 
-router.get("/user/:uid", function (req, res) {
-    res.send(UserService.getUserById(req.params.uid));
+router.get("/user/:uid", async function (req, res) {
+    res.send(await UserService.getUserById(req.params.uid));
 });
 
 router.post("/benefit", uploader.single('logo'), (req, res) => {
