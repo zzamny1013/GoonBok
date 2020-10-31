@@ -18,6 +18,7 @@ BenefitService.getBenefitsByParams = async (params) => {
     result = await getConnection("SELECT * FROM benefit " + (conditions.length ? ("WHERE " + conditions.join(" AND ")) : ""), values);
 
     //result에서 현재인지 과거인지 예정인지 걸러내는 코드(변수 이름은 now라고 가정)
+
     const date = new Date();
 
     const data = result[0].filter(b => {
@@ -36,6 +37,8 @@ BenefitService.getBenefitsByParams = async (params) => {
                 break;
             case "future":
                 return start.getTime() > date.getTime();
+            default:
+                return true;
         }
     })
     
