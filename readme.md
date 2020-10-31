@@ -42,9 +42,6 @@
 ## 설치 안내 (Installation Process)(개발 테스트용)
 ```bash
 $ git clone https://github.com/osamhack2020/WEB_AmongUs_0262
-$ cd ./frontend
-$ npm run serve
-터미널 하나 더 실행하여
 $ cd ./backend
 $ yarn install
 $ yarn start
@@ -69,7 +66,7 @@ $ mysql -u0262user -p goondb
 $ password: 0262fighting!
 ```
 4. 0262user로 접속 후 ./backend/test/tables.sql에 있는 쿼리로 테이블 생성합니다.  
-5. ./backend/test/insertUser.sql 과 ./backend/test/insertBenefit.sql에 있는 테스트 케이스를 추가합니다.  
+5. ./backend/test에 있는 insert들어간 sql문들 복사, 붙여넣기 해서 테스트 케이스를 추가합니다.  
 
  
 ## 팀 정보 (Team Information)

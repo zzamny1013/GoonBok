@@ -1,6 +1,4 @@
 import React from 'react';
-//axios import해주기. 물론 npm install axios 나 yarn add axios는 해줘야겠지
-import axios from 'axios';
 import {
   Container,
   Header,
@@ -24,13 +22,16 @@ import {
 } from 'native-base';
 import { Image, Alert ,StatusBar } from 'react-native';
 
-class SearchScreen extends React.Component {
+class LikedScreen extends React.Component {
   state = {
-    data: [],
+    data: [
+      
+    ],
     searchKey: '',
     showId: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
   };
-//loadItem 함수와 componentDidMount 함수 적당히 추가해주면됌.
+
+  //loadItem 함수와 componentDidMount 함수 적당히 추가해주면됌.
   loadItem = async () => {
     axios
       .get("http://localhost:3000/api/benefit2")
@@ -85,25 +86,12 @@ class SearchScreen extends React.Component {
           </Body>
           <Right></Right>
         </Header>
-        <Header searchBar rounded style={{ backgroundColor: '#2c6e49' }}>
-          <Item>
-            <Button transparent onPress={this.search}>
-              <Icon name={'ios-search'} style={{ color: '#2c6e49' }} />
-            </Button>
-            <Input
-              placeholder="검색어를 입력해주세요"
-              onChangeText={(text) =>
-                this.setState({ searchKey: text })
-              }></Input>
-            <Icon name="filter-outline" />
-          </Item>
-        </Header>
         <Content style={{ backgroundColor: '#fffffc' }}>
           <Separator bordered>
-            <Text style={{ fontSize: 12 }}>검색 결과</Text>
+            <Text style={{ fontSize: 12 }}>즐겨찾기한 혜택</Text>
           </Separator>
           <List
-            dataArray={this.state.showId}
+            dataArray={this.state.showId.filter(id => this.state.data[id].liked === true)}
             renderRow={(item) => (
               <ListItem>
                 <Icon
@@ -111,8 +99,7 @@ class SearchScreen extends React.Component {
                   style={{ color: 'gold', paddingRight: 10 }}
                   onPress={() => this.itemSelected(this.state.data[item])}></Icon>
                 <Image
-                //이미지 경로 바꿔줍시다. banner에는 "/img/a.png" 이런 식으로 저장되어 있습니다.
-                  source={"http//localhost:3000"+this.state.data[item].banner}
+                  source={"http://localhost:3000"+this.state.data[item].banner}
                   style={{
                     flex: 1,
                     resizeMode: 'stretch',
@@ -127,4 +114,4 @@ class SearchScreen extends React.Component {
   }
 }
 
-export default SearchScreen;
+export default LikedScreen;
