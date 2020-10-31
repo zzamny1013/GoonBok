@@ -29,13 +29,6 @@
 					<tr>
 						<th>신분</th>
 						<td colspan="3">
-						<select name="goon_type">
-							<option value="0">전체</option>
-							<option value="1">육군</option>
-							<option value="2">해군</option>
-							<option value="3">공군</option>
-							<option value="4">민간인</option>
-						</select>
 						
 						<select name="is_soldier">
 							<option value="0">전체</option>
