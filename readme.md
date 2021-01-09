@@ -1,4 +1,13 @@
 
+## 프로젝트 설명(Project Description)
+이 프로젝트는 국방오픈소스아카데미에서 주관한 "2020 군장병 공개SW 온라인 해커톤"에 출품한 프로젝트입니다.
+
+This project was submitted to the "2020 Military Officers Open SW Online Hackathon" organized by the Open Source Academy for Military.
+
+저는 이 프로젝트에서 백엔드 개발을 담당했습니다.
+
+I made backend sources in this project.
+
 # Logo
 <img src="https://user-images.githubusercontent.com/14193000/97607723-b1f30180-1a54-11eb-8d2b-7529f91640f4.png" width="500">
 
